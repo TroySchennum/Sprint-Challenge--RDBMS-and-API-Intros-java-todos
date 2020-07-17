@@ -75,7 +75,7 @@ public class UserServiceImpl implements UserService
         newUser.getTodos().clear();
         for (Todos t : user.getTodos())
         {
-            Todos newTodos = new Todos(t.getUser(), t.getDescription(), newUser);
+            Todos newTodos = new Todos(newUser, t.getDescription());
             newUser.getTodos().add(newTodos);
         }
 
