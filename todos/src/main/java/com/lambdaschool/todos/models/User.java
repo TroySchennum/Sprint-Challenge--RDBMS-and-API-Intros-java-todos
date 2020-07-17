@@ -44,6 +44,10 @@ public class User extends Auditable
     @Email
     private String primaryemail;
 
+    @OneToMany
+    private List<Todos> todos = new ArrayList<>();
+    @JsonIgnoreProperties("users")
+
     /**
      * Default constructor used primarily by the JPA.
      */
@@ -160,5 +164,15 @@ public class User extends Auditable
     public void setPassword(String password)
     {
         this.password = password;
+    }
+
+    public List<Todos> getTodos()
+    {
+        return todos;
+    }
+
+    public void setTodos(List<Todos> todos)
+    {
+        this.todos = todos;
     }
 }
